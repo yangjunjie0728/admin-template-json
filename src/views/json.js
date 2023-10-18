@@ -1,4 +1,4 @@
-{
+export default {
 	"config": {
 		"api": {
 			"list": "/api/user/list",

@@ -3,8 +3,9 @@
 <template>
   <div class="template">
     <el-form :model="form" inline label-width="70px" size="mini">
-      <el-form-item label="标题">
-        <el-input v-model="form.name" />
+      <el-form-item label="标题" v-for="(item,index) in form" :key="index">
+        <span>{{ item }}</span>
+        <!-- <el-input v-model="item" /> -->
       </el-form-item>
       <!-- <el-form-item label="性别">
         <el-select v-model="form.sex" placeholder="性别">
@@ -13,7 +14,6 @@
         </el-select>
       </el-form-item> -->
     </el-form>
-
     <el-table :data="tableData" border stripe align="center" v-loading="loading"
               @selection-change="handleSelectionChange">
       <el-table-column type="index" width="50"> </el-table-column>
@@ -21,7 +21,6 @@
       <el-table-column prop="name" label="名称">
       </el-table-column>
     </el-table>
-    <renderVNode id="id"></renderVNode>
     <el-pagination @size-change="handleSizeChange"
                    @current-change="handleCurrentChange"
                    :current-page="form.pageNum" :page-size="form.pageSize"
@@ -32,7 +31,7 @@
 
 <script setup lang="ts">
 import { h, ref } from "vue";
-import renderVNode from "@/utils/renderVNode";
+import { keys } from "./json";
 const loading = ref(false);
 const tableData = ref([{ name: "123" }]);
 const multipleSelection = ref([] as Array<object>);

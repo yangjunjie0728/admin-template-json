@@ -6,6 +6,7 @@ import './assets/index.scss'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import './utils/app'
 
 import axios from "axios";
 axios.defaults.baseURL = "/sign/";
